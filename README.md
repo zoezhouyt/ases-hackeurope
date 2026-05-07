@@ -1,36 +1,108 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ASES × HackEurope — Local Partner Activation System
 
-## Getting Started
+A polished public-facing partnership website for the ASES × HackEurope programme. Built to explain the campus-to-HackEurope founder activation pipeline to local university partners, HackEurope, and ecosystem stakeholders.
 
-First, run the development server:
+## What this is
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+ASES HQ acts as the central operating layer. Local university partners act as campus discovery nodes. HackEurope is the flagship competition destination.
+
+The pipeline:
+```
+ASES HQ → Local Partner → Campus Event → Student Teams → HackEurope Application → HackEurope Participation
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Strategic positioning: **Low commitment for students. High signal for the ecosystem.**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Running locally
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+cd ases-hackeurope
+npm install
+npm run dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-To learn more about Next.js, take a look at the following resources:
+## Deploying to Vercel
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Push this repository to GitHub.
+2. Go to [vercel.com](https://vercel.com) and import the repository.
+3. Vercel will auto-detect Next.js and deploy with zero configuration.
+4. Set any environment variables if needed (none required for Version 1).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Alternatively, using the Vercel CLI:
+```bash
+npm install -g vercel
+vercel --prod
+```
 
-## Deploy on Vercel
+## What is included in Version 1
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Public partnership website** — 8 pages explaining the programme to local university partners
+- **Event playbook** — 7 event formats with agendas, difficulty levels, and required outputs
+- **Local partner responsibilities** — Full list of requirements and three-tier partner recognition system
+- **HackEurope pathway** — Step-by-step student journey from campus event to HackEurope application
+- **Operations page** — Explains how ASES HQ monitors progress using Google Forms and Sheets
+- **Resource library** — Cards for all templates, SOPs, guides, forms, and tracking sheets (with placeholder links)
+- **Become a Partner page** — Application process and CTA linking to placeholder Google Form
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## What is NOT included in Version 1
+
+- No backend or database
+- No user login or authentication
+- No custom dashboard
+- No founder scoring or VC scouting metrics
+- No visa-related features
+- No guaranteed HackEurope acceptance claims
+
+## File structure
+
+```
+app/
+  page.tsx                    Home — pipeline overview
+  how-it-works/page.tsx       Five-step programme walkthrough
+  partners/page.tsx           Partner responsibilities, toolkit, and tiers
+  event-playbook/page.tsx     Seven event formats with full specs
+  hackeurope-pathway/page.tsx Student journey from campus to HackEurope
+  operations/page.tsx         Internal tools and tracking infrastructure
+  resources/page.tsx          Resource library with placeholder links
+  become-a-partner/page.tsx   Application process and CTA
+
+components/
+  Navbar.tsx                  Sticky top navigation
+  Footer.tsx                  Site-wide footer with disclaimer
+  Hero.tsx                    Page hero with badge, title, subtitle, CTAs
+  SectionHeader.tsx           Eyebrow + title + description block
+  PipelineFlow.tsx            Visual six-stage pipeline
+  EventCard.tsx               Event format card with agenda and outputs
+  PartnerTierCard.tsx         Bronze / Silver / Gold tier card
+  ResourceCard.tsx            Resource card with type label and open button
+  StepCard.tsx                Numbered step with connector line
+  OperationsToolCard.tsx      Form/Sheet tool specification card
+  CTASection.tsx              Dark call-to-action section
+
+data/
+  events.ts                   Seven event format definitions
+  partnerTiers.ts             Three partner tier definitions
+  resources.ts                Resource library entries
+  operationsTools.ts          Internal tracking tool definitions
+
+lib/
+  types.ts                    Shared TypeScript types
+```
+
+## What to improve next
+
+**Immediate (before launch):**
+- Replace all `href: "#"` placeholder links with real Google Drive / Google Forms URLs
+- Replace `https://forms.gle/example-local-partner-application` with the real partner application form
+- Add real partner logos or university names to a `Partners` showcase section
+- Add Open Graph metadata and favicon
+
+**Version 2:**
+- Replace Google Sheets with Airtable or Supabase integration
+- Build a real-time HQ dashboard with conversion funnel analytics
+- Add partner login portal for self-service event reporting
+- Automate post-event report reminders by email
+- Add downloadable PDFs and slide decks to the resource library
+- Add a partner map showing active universities across Europe
